@@ -8,10 +8,10 @@ var should = require("should"); 					// keeps your test code clean, and your err
 var SerialPort = require("serialport").SerialPort;  // access serial ports for reading and writing
 var dateFormat = require('dateformat');
 
-/*var serialPort = new SerialPort("COM3", {
+var serialPort = new SerialPort("COM3", {
     baudrate: 115200,
     parser: require("serialport").parsers.readline("\n")
-});*/
+});
 
 app.use(express.static('public'));
 
