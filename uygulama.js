@@ -41,7 +41,7 @@ io.on('connection', function(socket)
     });
 });
 
-/*
+
 // Serial Port Operations
 serialPort.on("open", function ()
 {
@@ -68,5 +68,3 @@ serialPort.on("open", function ()
 
 
 });
-
-*/
