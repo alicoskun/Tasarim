@@ -222,6 +222,14 @@
                 .call(gaugeZ);
 		
 
+		segDisplayX.value(0);
+		gaugeX.value(0);
+		
+		segDisplayY.value(0);
+		gaugeY.value(0);
+		
+		segDisplayZ.value(0);
+		gaugeZ.value(0);
 		
 		var socket = io();
 		socket.on('acceleration', function(msg){
