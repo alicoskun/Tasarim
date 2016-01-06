@@ -1,0 +1,20 @@
+{
+  "name": "deneme",
+  "version": "1.0.0",
+  "description": "deneme",
+  "main": "deneme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^1.0.12",
+    "express": "^4.13.3",
+    "mongodb": "^1.4.39",
+    "monk": "^1.0.1",
+    "serialport": "^2.0.6",
+    "should": "^8.0.2",
+    "socket.io": "^1.4.0"
+  }
+}

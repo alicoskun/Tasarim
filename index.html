@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Speedometer</title>
+    
+    <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
+	
+	<style>
+		h2 { color: #00FFFF; }
+		td { text-align: center; }
+		td.xyz { padding-left: 50px; }
+}
+	</style>
+	
+    <style>
+        body {
+            font: 16px arial;
+            background-color: #515151;
+        }
+
+        .unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* css formats for the gauge */
+        .gauge .domain {
+            stroke-width: 2px;
+            stroke: #fff;
+        }
+
+        .gauge .tick line {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+        
+        .gauge line {
+            stroke: #fff;
+        }
+
+        .gauge .arc, .gauge .cursor {
+            opacity: 0;
+        }
+
+        .gauge .major {
+            fill: #fff;
+            font-size: 20px;
+            font-family: 'Play', verdana, sans-serif;
+            font-weight: normal;
+        }
+        
+        .gauge .indicator {
+            stroke: #EE3311;
+            fill: #000;
+            stroke-width: 4px;
+        }
+
+        /* css formats for the segment display */
+        .segdisplay .on {
+            fill: #00FFFF;
+
+        }
+
+        .segdisplay .off {
+            fill: #00FFFF;
+            opacity: 0.15;
+        }
+    </style>
+
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var socket = io();
+			
+            socket.on('acceleration', function(msg){
+
+                var dataArray = msg.split(':');
+                $('#messages').html($('<li>').text(dataArray[0]+':'+dataArray[1]+':'+dataArray[2]));
+                var x = (new Date()).getTime();
+
+                var yx = parseFloat(dataArray[0]);
+                var yy = parseFloat(dataArray[1]);
+                var yz = parseFloat(dataArray[2]);
+			}
+		}
+	</script>
+	
+	</head>
+<body>
+	<table style="border-collapse: collapse;">
+		<tr>
+			<td id="X"></td>
+			<td id="Y"></td>
+			<td id="Z"></td>
+		</tr>
+		<tr>
+			<td class="xyz">
+				<h2>X</h2>
+			</td>
+			<td class="xyz">
+				<h2>Y</h2>
+			</td>
+			<td class="xyz">
+				<h2>Z</h2>
+			</td>
+		</tr>
+	</table>
+	
+    <button onClick="changeData()">Change Data</button>
+    <script>
+	
+		// svgX,Y,Z
+        var svgX = d3.select("#X")
+                .append("svg:svg")
+                .attr("width", 292)
+                .attr("height", 260);
+        var svgY = d3.select("#Y")
+                .append("svg:svg")
+                .attr("width", 292)
+                .attr("height", 260);
+        var svgZ = d3.select("#Z")
+                .append("svg:svg")
+                .attr("width", 292)
+                .attr("height", 260);
+
+				
+		// gaugeX
+        var gaugeX = iopctrl.arcslider()
+                .radius(120)
+                .events(false)
+                .indicator(iopctrl.defaultGaugeIndicator);
+        gaugeX.axis().orient("in")
+                .normalize(true)
+                .ticks(12)
+                .tickSubdivide(3)
+                .tickSize(10, 8, 10)
+                .tickPadding(5)
+                .scale(d3.scale.linear()
+                        .domain([0, 160])
+                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+			
+		// gaugeY			
+		var gaugeY = iopctrl.arcslider()
+                .radius(120)
+                .events(false)
+                .indicator(iopctrl.defaultGaugeIndicator);
+        gaugeY.axis().orient("in")
+                .normalize(true)
+                .ticks(12)
+                .tickSubdivide(3)
+                .tickSize(10, 8, 10)
+                .tickPadding(5)
+                .scale(d3.scale.linear()
+                        .domain([0, 160])
+                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+						
+		// gaugeZ		
+		var gaugeZ = iopctrl.arcslider()
+                .radius(120)
+                .events(false)
+                .indicator(iopctrl.defaultGaugeIndicator);
+        gaugeZ.axis().orient("in")
+                .normalize(true)
+                .ticks(12)
+                .tickSubdivide(3)
+                .tickSize(10, 8, 10)
+                .tickPadding(5)
+                .scale(d3.scale.linear()
+                        .domain([0, 160])
+                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+						
+
+		// segDisplayX
+        var segDisplayX = iopctrl.segdisplay()
+                .width(80)
+                .digitCount(6)
+                .negative(false)
+                .decimals(0);
+        svgX.append("g")
+                .attr("class", "segdisplay")
+                .attr("transform", "translate(130, 200)")
+                .call(segDisplayX);
+        svgX.append("g")
+                .attr("class", "gauge")
+                .call(gaugeX);
+						
+		// segDisplayY	
+		var segDisplayY = iopctrl.segdisplay()
+                .width(80)
+                .digitCount(6)
+                .negative(false)
+                .decimals(0);
+		svgY.append("g")
+                .attr("class", "segdisplay")
+                .attr("transform", "translate(130, 200)")
+                .call(segDisplayY);
+        svgY.append("g")
+                .attr("class", "gauge")
+                .call(gaugeY);
+
+		// segDisplayZ
+		var segDisplayZ = iopctrl.segdisplay()
+                .width(80)
+                .digitCount(6)
+                .negative(false)
+                .decimals(0);
+		svgZ.append("g")
+                .attr("class", "segdisplay")
+                .attr("transform", "translate(130, 200)")
+                .call(segDisplayZ);
+        svgZ.append("g")
+                .attr("class", "gauge")
+                .call(gaugeZ);
+		
+
+		
+		var socket = io();
+		socket.on('acceleration', function(msg){
+
+			var dataArray = msg.split(':');
+			
+			var time = (new Date()).getTime();
+
+			var xVal = parseFloat(dataArray[0]);
+			var yVal = parseFloat(dataArray[1]);
+			var zVal = parseFloat(dataArray[2]);
+			
+			// Values		
+			segDisplayX.value(xVal);
+			gaugeX.value(xVal);
+			
+			segDisplayY.value(yVal);
+			gaugeY.value(yVal);
+			
+			segDisplayZ.value(zVal);
+			gaugeZ.value(zVal);
+		}
+	
+		function changeData(){
+			gaugeX.value(randomData());
+			gaugeY.value(randomData());
+			gaugeZ.value(randomData());
+		}
+
+		function randomData(){
+			return 100 * Math.random();
+		}
+	
+    </script>
+</body>
