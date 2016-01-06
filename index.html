@@ -116,7 +116,6 @@
 		</tr>
 	</table>
 	
-    <button onClick="changeData()">Change Data</button>
     <script>
 	
 		// svgX,Y,Z
@@ -244,16 +243,6 @@
 			
 			segDisplayZ.value(zVal);
 			gaugeZ.value(zVal);
-		}
-	
-		function changeData(){
-			gaugeX.value(randomData());
-			gaugeY.value(randomData());
-			gaugeZ.value(randomData());
-		}
-
-		function randomData(){
-			return 100 * Math.random();
 		}
 	
     </script>
