@@ -13,7 +13,7 @@ var serialPort = new SerialPort("COM3", {
     parser: require("serialport").parsers.readline("\n")
 });
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 var db = monk('localhost/WaspMote');
 should.exists(db);
@@ -51,7 +51,7 @@ serialPort.on("open", function ()
         //console.log(data);
         var date = new Date();
         var dataArray = data.split(':');
-        console.log(dateFormat(date.getTime(), "yyyy-mm-dd HH:MM:ss") + '--> x:' + dataArray[0] + ' y:' + dataArray[1] + ' z:' + dataArray[2]);
+        console.log(dateFormat(date.getTime(), "yyyy-mm-dd HH:MM:ss") + ' || x:' + dataArray[0] + ' || y:' + dataArray[1] + ' || z:' + dataArray[2]);
 		
         // Tüm istemcilere gönder
         io.emit('acceleration', data);
