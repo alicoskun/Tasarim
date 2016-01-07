@@ -77,23 +77,6 @@
             opacity: 0.15;
         }
     </style>
-
-	<script type="text/javascript">
-        $(document).ready(function() {
-            var socket = io();
-			
-            socket.on('acceleration', function(msg){
-
-                var dataArray = msg.split(':');
-                $('#messages').html($('<li>').text(dataArray[0]+':'+dataArray[1]+':'+dataArray[2]));
-                var x = (new Date()).getTime();
-
-                var yx = parseFloat(dataArray[0]);
-                var yy = parseFloat(dataArray[1]);
-                var yz = parseFloat(dataArray[2]);
-			}
-		}
-	</script>
 	
 	</head>
 <body>
@@ -145,7 +128,7 @@
                 .tickSize(10, 8, 10)
                 .tickPadding(5)
                 .scale(d3.scale.linear()
-                        .domain([0, 160])
+                        .domain([-1000, 1000])
                         .range([-3*Math.PI/4, 3*Math.PI/4]));
 			
 		// gaugeY			
@@ -160,7 +143,7 @@
                 .tickSize(10, 8, 10)
                 .tickPadding(5)
                 .scale(d3.scale.linear()
-                        .domain([0, 160])
+                        .domain([-1000, 1000])
                         .range([-3*Math.PI/4, 3*Math.PI/4]));
 						
 		// gaugeZ		
@@ -175,7 +158,7 @@
                 .tickSize(10, 8, 10)
                 .tickPadding(5)
                 .scale(d3.scale.linear()
-                        .domain([0, 160])
+                        .domain([-1000, 1000])
                         .range([-3*Math.PI/4, 3*Math.PI/4]));
 						
 
@@ -183,7 +166,7 @@
         var segDisplayX = iopctrl.segdisplay()
                 .width(80)
                 .digitCount(6)
-                .negative(false)
+                .negative(true)
                 .decimals(0);
         svgX.append("g")
                 .attr("class", "segdisplay")
@@ -197,7 +180,7 @@
 		var segDisplayY = iopctrl.segdisplay()
                 .width(80)
                 .digitCount(6)
-                .negative(false)
+                .negative(true)
                 .decimals(0);
 		svgY.append("g")
                 .attr("class", "segdisplay")
@@ -211,7 +194,7 @@
 		var segDisplayZ = iopctrl.segdisplay()
                 .width(80)
                 .digitCount(6)
-                .negative(false)
+                .negative(true)
                 .decimals(0);
 		svgZ.append("g")
                 .attr("class", "segdisplay")
@@ -221,7 +204,6 @@
                 .attr("class", "gauge")
                 .call(gaugeZ);
 		
-
 		segDisplayX.value(0);
 		gaugeX.value(0);
 		
@@ -231,16 +213,19 @@
 		segDisplayZ.value(0);
 		gaugeZ.value(0);
 		
+		
 		var socket = io();
+		alert(socket);
 		socket.on('acceleration', function(msg){
 
 			var dataArray = msg.split(':');
 			
 			var time = (new Date()).getTime();
-
+			
 			var xVal = parseFloat(dataArray[0]);
 			var yVal = parseFloat(dataArray[1]);
 			var zVal = parseFloat(dataArray[2]);
+			
 			
 			// Values		
 			segDisplayX.value(xVal);
@@ -251,7 +236,7 @@
 			
 			segDisplayZ.value(zVal);
 			gaugeZ.value(zVal);
-		}
+		});
 	
     </script>
 </body>

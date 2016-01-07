@@ -48,10 +48,10 @@ serialPort.on("open", function ()
     // Seri porttan okuma
     serialPort.on('data', function(data)
     {
-        console.log(data);
+        //console.log(data);
         var date = new Date();
         var dataArray = data.split(':');
-        console.log(dateFormat(date.getTime(), "yyyy-mm-dd HH:MM:ss") + '-->x :' + dataArray[0] + 'y :' + dataArray[1] + 'z :' + dataArray[2]);
+        console.log(dateFormat(date.getTime(), "yyyy-mm-dd HH:MM:ss") + '--> x:' + dataArray[0] + ' y:' + dataArray[1] + ' z:' + dataArray[2]);
 		
         // Tüm istemcilere gönder
         io.emit('acceleration', data);
