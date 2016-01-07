@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Personal Website Template</title>
-	<link rel="stylesheet" href="http://localhost:8080/css/style.css" type="text/css">
+	<link rel="stylesheet" href="https://rawgit.com/alicoskun/Tasarim/master/css/style.css" type="text/css">
 	
 	
 	<script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
@@ -84,7 +84,7 @@
 	<div class="background">
 		<div class="page">
 			<div class="logo">
-				<span> <a href="index.html"><img src="images/logo.png" alt=""></a> </span>
+				<span> <a href="index.html"><img src="https://rawgit.com/alicoskun/Tasarim/master/images/logo.png" alt=""></a> </span>
 			</div>
 			<div class="sidebar">
 				<ul>
@@ -105,163 +105,163 @@
 						<h3><a href="blog.html">Latest shots: practice mode</a></h3>
 						<span>Acceleration</span>
 						<table style="border-collapse: collapse;">
-		<tr>
-			<td id="X"></td>
-			<td id="Y"></td>
-			<td id="Z"></td>
-		</tr>
-		<tr>
-			<td class="xyz">
-				<h2>X</h2>
-			</td>
-			<td class="xyz">
-				<h2>Y</h2>
-			</td>
-			<td class="xyz">
-				<h2>Z</h2>
-			</td>
-		</tr>
-	</table>
-	
-    <script>
-	
-		// svgX,Y,Z
-        var svgX = d3.select("#X")
-                .append("svg:svg")
-                .attr("width", 260)
-                .attr("height", 220);
-        var svgY = d3.select("#Y")
-                .append("svg:svg")
-                .attr("width", 260)
-                .attr("height", 220);
-        var svgZ = d3.select("#Z")
-                .append("svg:svg")
-                .attr("width", 260)
-                .attr("height", 220);
-
-				
-		// gaugeX
-        var gaugeX = iopctrl.arcslider()
-                .radius(100)
-                .events(false)
-                .indicator(iopctrl.defaultGaugeIndicator);
-        gaugeX.axis().orient("in")
-                .normalize(true)
-                .ticks(12)
-                .tickSubdivide(3)
-                .tickSize(10, 8, 10)
-                .tickPadding(5)
-                .scale(d3.scale.linear()
-                        .domain([-1000, 1000])
-                        .range([-3*Math.PI/4, 3*Math.PI/4]));
-			
-		// gaugeY			
-		var gaugeY = iopctrl.arcslider()
-                .radius(100)
-                .events(false)
-                .indicator(iopctrl.defaultGaugeIndicator);
-        gaugeY.axis().orient("in")
-                .normalize(true)
-                .ticks(12)
-                .tickSubdivide(3)
-                .tickSize(10, 8, 10)
-                .tickPadding(5)
-                .scale(d3.scale.linear()
-                        .domain([-1000, 1000])
-                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+							<tr>
+								<td id="X"></td>
+								<td id="Y"></td>
+								<td id="Z"></td>
+							</tr>
+							<tr>
+								<td class="xyz">
+									<h2>X</h2>
+								</td>
+								<td class="xyz">
+									<h2>Y</h2>
+								</td>
+								<td class="xyz">
+									<h2>Z</h2>
+								</td>
+							</tr>
+						</table>
 						
-		// gaugeZ		
-		var gaugeZ = iopctrl.arcslider()
-                .radius(100)
-                .events(false)
-                .indicator(iopctrl.defaultGaugeIndicator);
-        gaugeZ.axis().orient("in")
-                .normalize(true)
-                .ticks(12)
-                .tickSubdivide(3)
-                .tickSize(10, 8, 10)
-                .tickPadding(5)
-                .scale(d3.scale.linear()
-                        .domain([-1000, 1000])
-                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+						<script>
 						
+							// svgX,Y,Z
+							var svgX = d3.select("#X")
+									.append("svg:svg")
+									.attr("width", 260)
+									.attr("height", 220);
+							var svgY = d3.select("#Y")
+									.append("svg:svg")
+									.attr("width", 260)
+									.attr("height", 220);
+							var svgZ = d3.select("#Z")
+									.append("svg:svg")
+									.attr("width", 260)
+									.attr("height", 220);
 
-		// segDisplayX
-        var segDisplayX = iopctrl.segdisplay()
-                .width(60)
-                .digitCount(5)
-                .negative(true)
-                .decimals(0);
-        svgX.append("g")
-                .attr("class", "segdisplay")
-                .attr("transform", "translate(120, 170)")
-                .call(segDisplayX);
-        svgX.append("g")
-                .attr("class", "gauge")
-                .call(gaugeX);
+									
+							// gaugeX
+							var gaugeX = iopctrl.arcslider()
+									.radius(100)
+									.events(false)
+									.indicator(iopctrl.defaultGaugeIndicator);
+							gaugeX.axis().orient("in")
+									.normalize(true)
+									.ticks(12)
+									.tickSubdivide(3)
+									.tickSize(10, 8, 10)
+									.tickPadding(5)
+									.scale(d3.scale.linear()
+											.domain([-1000, 1000])
+											.range([-3*Math.PI/4, 3*Math.PI/4]));
+								
+							// gaugeY			
+							var gaugeY = iopctrl.arcslider()
+									.radius(100)
+									.events(false)
+									.indicator(iopctrl.defaultGaugeIndicator);
+							gaugeY.axis().orient("in")
+									.normalize(true)
+									.ticks(12)
+									.tickSubdivide(3)
+									.tickSize(10, 8, 10)
+									.tickPadding(5)
+									.scale(d3.scale.linear()
+											.domain([-1000, 1000])
+											.range([-3*Math.PI/4, 3*Math.PI/4]));
+											
+							// gaugeZ		
+							var gaugeZ = iopctrl.arcslider()
+									.radius(100)
+									.events(false)
+									.indicator(iopctrl.defaultGaugeIndicator);
+							gaugeZ.axis().orient("in")
+									.normalize(true)
+									.ticks(12)
+									.tickSubdivide(3)
+									.tickSize(10, 8, 10)
+									.tickPadding(5)
+									.scale(d3.scale.linear()
+											.domain([-1000, 1000])
+											.range([-3*Math.PI/4, 3*Math.PI/4]));
+											
+
+							// segDisplayX
+							var segDisplayX = iopctrl.segdisplay()
+									.width(60)
+									.digitCount(5)
+									.negative(true)
+									.decimals(0);
+							svgX.append("g")
+									.attr("class", "segdisplay")
+									.attr("transform", "translate(120, 170)")
+									.call(segDisplayX);
+							svgX.append("g")
+									.attr("class", "gauge")
+									.call(gaugeX);
+											
+							// segDisplayY	
+							var segDisplayY = iopctrl.segdisplay()
+									.width(60)
+									.digitCount(5)
+									.negative(true)
+									.decimals(0);
+							svgY.append("g")
+									.attr("class", "segdisplay")
+									.attr("transform", "translate(120, 170)")
+									.call(segDisplayY);
+							svgY.append("g")
+									.attr("class", "gauge")
+									.call(gaugeY);
+
+							// segDisplayZ
+							var segDisplayZ = iopctrl.segdisplay()
+									.width(60)
+									.digitCount(5)
+									.negative(true)
+									.decimals(0);
+							svgZ.append("g")
+									.attr("class", "segdisplay")
+									.attr("transform", "translate(120, 170)")
+									.call(segDisplayZ);
+							svgZ.append("g")
+									.attr("class", "gauge")
+									.call(gaugeZ);
+							
+							segDisplayX.value(0);
+							gaugeX.value(0);
+							
+							segDisplayY.value(0);
+							gaugeY.value(0);
+							
+							segDisplayZ.value(0);
+							gaugeZ.value(0);
+							
+							
+							var socket = io();
+							socket.on('acceleration', function(msg){
+
+								var dataArray = msg.split(':');
+								
+								var time = (new Date()).getTime();
+								
+								var xVal = parseFloat(dataArray[0]);
+								var yVal = parseFloat(dataArray[1]);
+								var zVal = parseFloat(dataArray[2]);
+								
+								
+								// Values		
+								segDisplayX.value(xVal);
+								gaugeX.value(xVal);
+								
+								segDisplayY.value(yVal);
+								gaugeY.value(yVal);
+								
+								segDisplayZ.value(zVal);
+								gaugeZ.value(zVal);
+							});
 						
-		// segDisplayY	
-		var segDisplayY = iopctrl.segdisplay()
-                .width(60)
-                .digitCount(5)
-                .negative(true)
-                .decimals(0);
-		svgY.append("g")
-                .attr("class", "segdisplay")
-                .attr("transform", "translate(120, 170)")
-                .call(segDisplayY);
-        svgY.append("g")
-                .attr("class", "gauge")
-                .call(gaugeY);
-
-		// segDisplayZ
-		var segDisplayZ = iopctrl.segdisplay()
-                .width(60)
-                .digitCount(5)
-                .negative(true)
-                .decimals(0);
-		svgZ.append("g")
-                .attr("class", "segdisplay")
-                .attr("transform", "translate(120, 170)")
-                .call(segDisplayZ);
-        svgZ.append("g")
-                .attr("class", "gauge")
-                .call(gaugeZ);
-		
-		segDisplayX.value(0);
-		gaugeX.value(0);
-		
-		segDisplayY.value(0);
-		gaugeY.value(0);
-		
-		segDisplayZ.value(0);
-		gaugeZ.value(0);
-		
-		
-		var socket = io();
-		socket.on('acceleration', function(msg){
-
-			var dataArray = msg.split(':');
-			
-			var time = (new Date()).getTime();
-			
-			var xVal = parseFloat(dataArray[0]);
-			var yVal = parseFloat(dataArray[1]);
-			var zVal = parseFloat(dataArray[2]);
-			
-			
-			// Values		
-			segDisplayX.value(xVal);
-			gaugeX.value(xVal);
-			
-			segDisplayY.value(yVal);
-			gaugeY.value(yVal);
-			
-			segDisplayZ.value(zVal);
-			gaugeZ.value(zVal);
-		});
-	
-    </script>
+						</script>
 						<p>
 							This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
 						</p>

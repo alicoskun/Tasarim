@@ -13,7 +13,7 @@ a img {
 	display:block;
 }
 .background {
-	background:url(images/bg-background.png) repeat-x left top;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/bg-background.png") repeat-x left top;
 }
 .page {
 	width:960px;
@@ -51,7 +51,7 @@ p a:hover {
 	background:url(../images/bg-logo.jpg) repeat-y;
 }
 .logo span {
-	background: url("../images/shadow1.png") no-repeat scroll 11px bottom transparent;
+	background: url("https://rawgit.com/alicoskun/Tasarim/master/images/shadow1.png") no-repeat scroll 11px bottom transparent;
 	display: block;
 	height: 193px;
 	padding:48px 0 0 36px;
@@ -66,10 +66,10 @@ p a:hover {
 	margin:0;
 }
 .sidebar ul li.selected {
-	background:url(../images/bg-nav-selected.jpg) no-repeat;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/bg-nav-selected.jpg") no-repeat;
 }
 .sidebar ul li {
-	background:url(../images/bg-nav.jpg) no-repeat;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/bg-nav.jpg") no-repeat;
 	width:130px;
 	height:60px;
 	text-align:right;
@@ -107,22 +107,22 @@ p a:hover {
 	margin:0 0 30px 36px;
 }
 .connect a#facebook {
-	background:url(../images/icons.png) no-repeat 0 0;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/icons.png") no-repeat 0 0;
 }
 .connect a#facebook:hover {
-	background:url(../images/icons.png) no-repeat 0 -225px;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/icons.png") no-repeat 0 -225px;
 }
 .connect a#twitter {
-	background:url(../images/icons.png) no-repeat 0 -75px;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/icons.png") no-repeat 0 -75px;
 }
 .connect a#twitter:hover {
-	background:url(../images/icons.png) no-repeat 0 -300px;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/icons.png") no-repeat 0 -300px;
 }
 .connect a#googleplus {
-	background:url(../images/icons.png) no-repeat 0 -150px;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/icons.png") no-repeat 0 -150px;
 }
 .connect a#googleplus:hover {
-	background:url(../images/icons.png) no-repeat 0 -375px;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/icons.png") no-repeat 0 -375px;
 }
 .sidebar p.footnote {
 	font-family:Arial, Helvetica, sans-serif;
@@ -138,7 +138,7 @@ p a:hover {
 	border-width:1px;
 	border-style:none solid none none;
 	border-color:#fec848;
-	background:url(../images/bg-content.jpg) repeat-y;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/bg-content.jpg") repeat-y;
 	margin: -171px 0 0;
 	min-height:500px;
 }
@@ -150,10 +150,10 @@ p a:hover {
 .body ul li p {
 }
 .body ul li {
-	background:url(../images/separator.jpg) no-repeat right top;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/separator.jpg") no-repeat right top;
 }
 .body ul li.first {
-	background:url(../images/bg-first-separator.jpg) no-repeat left top;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/bg-first-separator.jpg") no-repeat left top;
 }
 .body ul li.first h3 {
 	margin:0 0 0 30px;
@@ -307,7 +307,7 @@ p a:hover {
 }
 .body .about {
 	padding:18px 30px 0;
-	background:url(../images/separator.jpg) no-repeat right top;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/separator.jpg") no-repeat right top;
 }
 .body .about h3 {
 	font-family:Georgia, "Times New Roman", Times, serif;
@@ -330,7 +330,7 @@ p a:hover {
 }
 .body .blog {
 	padding:0 30px;
-	background:url(../images/bg-first-separator.jpg) no-repeat right top;
+	background:url("https://rawgit.com/alicoskun/Tasarim/master/images/bg-first-separator.jpg") no-repeat right top;
 	overflow:hidden;
 }
 .body .blog div:first-child {
